@@ -1,0 +1,383 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background-image: url('hero.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    position: fixed;
+    top: 2rem;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+}
+
+.logo img {
+    max-width: 200px; /* Ridotto da 300px a 200px per desktop */
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    padding-top: 6rem; /* Spazio aggiuntivo per il logo fisso */
+}
+
+.email-form {
+    margin: 2rem 0;
+}
+
+.email-form form {
+    display: flex;
+    flex-direction: row;
+}
+
+.email-form input {
+    padding: 10px 15px;
+    width: 250px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.email-form input::placeholder {
+    color: #fff;
+}
+
+.email-form button {
+    padding: 10px 15px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+#thank-you-message {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #fff;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.social-icons {
+    margin-bottom: 2rem;
+}
+
+.instagram-icon {
+    color: #fff;
+    font-size: 24px;
+    display: inline-block;
+    transition: transform 0.5s ease;
+}
+
+.instagram-icon.rotate {
+    transform: rotate(360deg);
+}
+
+/* Description Section */
+.description {
+    min-height: 300px;
+    padding: 3rem;
+    background-color: #000;
+}
+
+.description-container {
+    display: flex;
+    max-width: 900px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.description-text {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.description-text p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.description-image {
+    flex: 1;
+    text-align: right;
+}
+
+.description-image img {
+    max-width: 90%;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+}
+
+.footer-instagram {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.footer-instagram .instagram-icon {
+    font-size: 28px;
+    color: #fff;
+}
+
+.footer-cookies {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.footer-cookies .cookies-icon {
+    font-size: 24px;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.footer-cookies .cookies-icon:hover {
+    transform: rotate(20deg);
+}
+
+footer p {
+    margin: 0.3rem 0;
+}
+
+.author-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.author-link:hover {
+    color: #ccc;
+    text-decoration: underline;
+}
+
+/* Cookie Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    display: none;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cookie-banner p {
+    margin-bottom: 10px;
+}
+
+.cookie-banner button {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cookie-banner button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        background-image: url('heromobile.jpg');
+        background-position: center;
+        background-size: cover;
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 2rem;
+    }
+    
+    .logo {
+        position: relative;
+        top: 0;
+        padding-top: 1.5rem;
+        text-align: center;
+    }
+    
+    .logo img {
+        max-width: 100px;
+    }
+    
+    .hero-content {
+        padding: 1rem;
+        padding-top: 1.5rem;
+        height: auto;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    /* Ottimizzazione sezione email per mobile */
+    .email-form {
+        margin: 1rem 0;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .email-form form {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .email-form input {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    .email-form button {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    /* Riduzione dimensione testo descrizione */
+    .description {
+        padding: 1.5rem;
+    }
+    
+    .description-container {
+        flex-direction: column;
+    }
+    
+    .description-text {
+        padding-right: 0;
+        margin-bottom: 1.5rem;
+    }
+    
+    .description-text p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .email-form {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    .email-form form {
+        flex-direction: row;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .email-form input {
+        width: 70%;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+        padding: 10px;
+        border-radius: 4px 0 0 4px;
+    }
+    
+    .email-form button {
+        width: 30%;
+        font-size: 0.9rem;
+        padding: 10px;
+        border-radius: 0 4px 4px 0;
+    }
+    
+    .social-icons {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .social-icons a {
+        margin: 0 0.5rem;
+    }
+    
+    .description {
+        padding: 1.5rem 1rem;
+    }
+    
+    .description-container {
+        flex-direction: column-reverse;
+    }
+    
+    .description-text {
+        padding-right: 0;
+        padding-top: 1rem;
+    }
+    
+    .description-text h2 {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .description-text p {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        line-height: 1.3;
+    }
+    
+    .description-image {
+        text-align: center;
+    }
+    
+    .description-image img {
+        max-width: 70%;
+        border-radius: 8px;
+    }
+    
+    footer {
+        padding: 1rem;
+    }
+    
+    footer p {
+        font-size: 0.7rem;
+    }
+}
