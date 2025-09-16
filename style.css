@@ -230,14 +230,15 @@ footer p {
     }
     
     .logo {
-        position: relative;
-        top: 0;
-        padding-top: 1.5rem;
+        position: fixed;
+        top: 1rem;
+        width: 100%;
         text-align: center;
+        z-index: 1000;
     }
     
     .logo img {
-        max-width: 100px;
+        max-width: 150px;
     }
     
     .hero-content {
