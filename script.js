@@ -75,18 +75,44 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (subscriptionForm) {
         subscriptionForm.addEventListener('submit', function(event) {
-            // Non preveniamo l'invio del form per permettere a FormSubmit di ricevere i dati
+            // Preveniamo l'invio standard del form per gestirlo con JavaScript
+            event.preventDefault();
             
-            // Nascondiamo il form
-            this.style.display = 'none';
+            // Salviamo il riferimento al campo email
+            const emailField = this.querySelector('input[type="email"]');
             
-            // Mostriamo il messaggio di ringraziamento
-            if (thankYouMessage) {
-                thankYouMessage.style.display = 'block';
-            }
-            
-            // Permettiamo l'invio del form a FormSubmit
-            return true;
+            // Inviamo il form in modo programmatico
+            const formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                // Azzeriamo il campo email
+                if (emailField) {
+                    emailField.value = '';
+                }
+                
+                // Nascondiamo il form
+                this.style.display = 'none';
+                
+                // Mostriamo il messaggio di ringraziamento
+                if (thankYouMessage) {
+                    thankYouMessage.style.display = 'block';
+                }
+                
+                // Dopo 3 secondi, ripristiniamo il form e nascondiamo il messaggio
+                setTimeout(() => {
+                    this.style.display = 'block';
+                    if (thankYouMessage) {
+                        thankYouMessage.style.display = 'none';
+                    }
+                }, 3000);
+            }).catch(error => {
+                console.error('Errore durante l\'invio del form:', error);
+            });
         });
     }
 });
